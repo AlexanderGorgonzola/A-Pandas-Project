@@ -19,6 +19,17 @@ while True:
     elif user_input.lower() == "row":
         if len(data.columns) == 0:
             print("Please add a column first")
+        else:
+            print(f"These are your current columns in order: {data.columns.tolist()}")
+            print("please specify the items you want in your rows (by columns)")
+            items = []
+            for names in data.columns:
+                add = input(f"\n{names}: ")
+                items.append(add)
+
+            data.loc[len(data)] = items
+            items = []
+
     elif user_input.lower() == "column":
         while True:
             column_name = input("What is its name?: ")
@@ -27,8 +38,15 @@ while True:
                 pass
             else:
                 break
-        data.insert(len(data), column_name, [])
-        
+        if len(data) == 0:
+            data.insert(len(data), column_name, [])
+        else:
+            hollow_purple = []
+            for x in range(len(data)):
+                hollow_purple.append("Nan")
+            data.insert(len(data), column_name, hollow_purple)
+            hollow_purple = []
+            
     user_input = input("Would you like to view your data? (y/n): ")
     if user_input.lower() == "y":
-        print(data)
+        print(data.head())

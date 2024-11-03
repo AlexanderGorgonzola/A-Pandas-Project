@@ -1,0 +1,1 @@
+This is a practice project, and I'll be updating it daily until completion. If you wanna see requirments go check the text file. To run, just execute main.py. It should work unless if you're missing some of the requiremnts. If CamdenBot56 sees this btw, I wish him luck!
